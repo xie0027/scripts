@@ -115,7 +115,7 @@ if ($.isNode()) {
       COOKIES_SPLIT
     )} =============\n`
   );
-  console.log(====process.env.QQREAD_TIMEHD=====)
+  
   if (
     process.env.QQREAD_BODY &&
     process.env.QQREAD_BODY.indexOf(COOKIES_SPLIT) > -1
