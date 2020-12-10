@@ -38,5 +38,5 @@ jobs:
           npm install tough-cookie
       - name: '运行 【QQ阅读】'
         run: |
-          node Scripts/qqreads.js
+          node qqreads.js
         
