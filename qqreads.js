@@ -115,7 +115,6 @@ if ($.isNode()) {
       COOKIES_SPLIT
     )} =============\n`
   );
-  
   if (
     process.env.QQREAD_BODY &&
     process.env.QQREAD_BODY.indexOf(COOKIES_SPLIT) > -1
