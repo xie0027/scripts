@@ -22,7 +22,7 @@ jobs:
     steps:
       - name: Checkout
         run: |
-          git clone https://github.com/xie0027/scripts.git ~/JavaScript
+          git clone https://github.com/ziye12/JavaScript.git ~/JavaScript
       - name: Use Node.js 12.x
         uses: actions/setup-node@v1
         with:
@@ -36,7 +36,7 @@ jobs:
         if: env.QQREAD_TIMEHD
         run: |
           cd ~/JavaScript
-          node qqreads.js
+          node Task/qqreads.js
         env:
           
           PUSH_KEY: ${{ secrets.PUSH_KEY }}
@@ -46,3 +46,5 @@ jobs:
           BARK_SOUND: ${{ secrets.BARK_SOUND }}
           DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
           DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
+
+    
