@@ -21,7 +21,7 @@ jobs:
           node-version: 10.x
       - name: npm install
         run: |
-          npm install
+          npm install -g
       - name: "运行 【机场签到】"
         run: |
           cd ~/checkin
