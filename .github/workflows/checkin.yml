@@ -14,7 +14,7 @@ jobs:
     steps:
       - name: checkout
         run: |
-          git clone https://github.com/evilbutcher/Quantumult_X.git ~/
+          git clone https://github.com/evilbutcher/Quantumult_X.git ~/checkin
       - name: Use Node.js 10.x
         uses: actions/setup-node@v1
         with:
@@ -24,6 +24,7 @@ jobs:
           npm install
       - name: "运行 【机场签到】"
         run: |
+          cd checkin
           node check_in/glados/checkin_env.js
         env:
           TITLE: ${{ secrets.CHECKIN_TITLE }}
