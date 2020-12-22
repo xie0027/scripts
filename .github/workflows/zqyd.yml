@@ -1,0 +1,32 @@
+name: 中青阅读
+
+on:
+  workflow_dispatch:
+  schedule:
+     - cron: '* * */15 * * *'
+  watch:
+    types: started
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    env:
+        YOUTH_READ: ${{ secrets.YOUTH_READ }}
+        
+    steps:
+      - name: Checkout
+        run: |
+          git clone https://github.com/songyangzz/QuantumultX.git ~/JavaScript
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: npm install
+        run: |
+          cd ~/JavaScript
+          npm install
+      - name: '运行 【中青阅读】'
+        run: |
+          cd ~/JavaScript
+          node YOUTH_READ.js
