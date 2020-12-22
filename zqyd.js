@@ -18,6 +18,7 @@ if (!(bodys && bodys != '')) {
   $.msg("", "", '请先阅读文章获取中青body\nbody获取越多，脚本可获得青豆越多')
   $.done()
 }
+$.msg(bodys)
 YouthBody = bodys.split('&');
 //   if (process.env.YOUTH_READ && process.env.YOUTH_READ.indexOf('&') > -1) {
 //   YouthBody = process.env.YOUTH_READ.split('&');
