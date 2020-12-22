@@ -1,24 +1,20 @@
 /*
 更新时间: 2020-09-26 8:46
 Github Actions使用方法见[@lxk0301](https://raw.githubusercontent.com/lxk0301/scripts/master/githubAction.md) 使用方法大同小异
-
 请自行抓包，阅读文章和看视频，倒计时转一圈显示青豆到账即可，多看几篇文章和视频，获得更多包数据，抓包地址为"https://ios.baertt.com/v5/article/complete.json"，在Github Actions中的Secrets新建name为'YOUTH_READ'的一个值，拷贝抓包的请求体到下面Value的文本框中，添加的请求体越多，获得青豆次数越多，本脚本不包含任何推送通知
-
 多个请求体时用'&'号或者换行隔开" ‼️
-
 */
 
 //let s = 30000 //等待延迟30s
 const $ = new Env("中青看点")
 //const notify = $.isNode() ? require('./sendNotify') : '';
 let ReadArr = [], YouthBody = "", readscore = 0;
-let bodys = 9NwGV8Ov71o%3DgW5NEpb6rjb84bkaCQyOq-myT0C-Ktb_kF97hamPuz4ZZk3rmRrVU_m2Z51XN3szZYaCPxNG07BYjyjwYkBVGTfTGYPVecze9u-jGHCQmfvey4yZrPyKR-cA01PbV3h61GBiHFc-skGrpoDK0eliCfJPX7f9_IVT-MEKcW_xpZDBt9WJyAFp0-dwpWK9tClHOTqouJk7rcwedzHTY6ZKm2hiXYXt9_vAWeO-Ttt_5sRrbu6EG6yEmGkGnxgjNHXQfZG9NZ34RHmNBngdwC9cb_sV560AtCQwc11i345UhU22aaHVDWb4U2yxIqHcWQo-5u0r1D5uUOxgKjo4tQMb6S7VT3HQMyCksn2kR4L8nKZLZXcgsafoL_U62L5KdMt914Q4D3UpYsS6Ar12Jefyo4MwNmQQZ3aQseRXkqWbRZM7CdzpA4t-oBDM6X1332rTDs75Es5Y-unz52_ylrLe2Jqyb4lHmFNMHY94Hm-_LG7WoTWD-u3SB2jWBfcLKc4pmmnvL8aNe6458IkA4kjfzePbzPXU6nLVM1sRFgkYjRdkAmccjB6OGXjYMnviEWKMnGm22oq6i9Yr7DRVT_gmQuqZlNtn1NYmB0Y8rw2x3KaVp5po7GXChD5E3dU50RPDOEswFunER5txlgCE7rEAcJjjzld5liT4af7WGKkd-zsyqpoGQQkVWvHoX6BSfD16vDg3jfejXDdRyiQ6OcA9AM97lUF9Js4wDOqcnTh_2XAd_PDPihAv0E_9auBoKMxjDltmQzyeRMDTnanMw1byVrkRulUejL-EDoVYymW2KjFLZXPLedsUPDXcDsrtEL-BE1dP8_ZIyVTZBjRBf7kIe-XzXl2uH9vF;
+let bodys = $.getdata("zqgetbody_body");
 
 if (!(bodys && bodys != '')) {
   $.msg("", "", '请先阅读文章获取中青body\nbody获取越多，脚本可获得青豆越多')
   $.done()
 }
-$.msg(bodys)
 YouthBody = bodys.split('&');
 //   if (process.env.YOUTH_READ && process.env.YOUTH_READ.indexOf('&') > -1) {
 //   YouthBody = process.env.YOUTH_READ.split('&');
