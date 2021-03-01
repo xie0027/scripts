@@ -20,8 +20,9 @@ jobs:
       YOUTH_READ4: ${{ secrets.YOUTH_READ4 }}
     steps:
       - name: Checkout
-        run: |
-          git clone https://github.com/GoodHolidays/Scripts.git ~/JavaScript
+        uses: actions/checkout@v2
+        with:
+          repository: ${{ github.repository }}
       - name: Use Node.js 12.x
         uses: actions/setup-node@v1
         with:
@@ -35,7 +36,7 @@ jobs:
         if: env.YOUTH_READ
         run: |
           cd ~/JavaScript
-          node Task/Youth_Read.js
+          node Youth_Read.js
         env:
           YOUTH_READ: ${{ secrets.YOUTH_READ }}
 
@@ -43,7 +44,7 @@ jobs:
         if: env.YOUTH_READ2
         run: |
           cd ~/JavaScript
-          node Task/Youth_Read.js
+          node Youth_Read.js
         env:
           YOUTH_READ: ${{ secrets.YOUTH_READ2 }}
           
@@ -51,7 +52,7 @@ jobs:
         if: env.YOUTH_READ3
         run: |
           cd ~/JavaScript
-          node Task/Youth_Read.js
+          node Youth_Read.js
         env:
           YOUTH_READ: ${{ secrets.YOUTH_READ3 }}
           
@@ -59,6 +60,6 @@ jobs:
         if: env.YOUTH_READ4
         run: |
           cd ~/JavaScript
-          node Task/Youth_Read.js
+          node Youth_Read.js
         env:
           YOUTH_READ: ${{ secrets.YOUTH_READ4 }}
