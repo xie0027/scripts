@@ -29,13 +29,11 @@ jobs:
           node-version: 12.x
       - name: npm install
         run: |
-          cd ~/JavaScript
           npm install
           
       - name: '运行 【中青看点自动阅读一】'
         if: env.YOUTH_READ
         run: |
-          cd ~/JavaScript
           node Youth_Read.js
         env:
           YOUTH_READ: ${{ secrets.YOUTH_READ }}
@@ -43,7 +41,6 @@ jobs:
       - name: '运行 【中青看点自动阅读二】'
         if: env.YOUTH_READ2
         run: |
-          cd ~/JavaScript
           node Youth_Read.js
         env:
           YOUTH_READ: ${{ secrets.YOUTH_READ2 }}
@@ -51,7 +48,6 @@ jobs:
       - name: '运行 【中青看点自动阅读三】'
         if: env.YOUTH_READ3
         run: |
-          cd ~/JavaScript
           node Youth_Read.js
         env:
           YOUTH_READ: ${{ secrets.YOUTH_READ3 }}
@@ -59,7 +55,6 @@ jobs:
       - name: '运行 【中青看点自动阅读四】'
         if: env.YOUTH_READ4
         run: |
-          cd ~/JavaScript
           node Youth_Read.js
         env:
           YOUTH_READ: ${{ secrets.YOUTH_READ4 }}
