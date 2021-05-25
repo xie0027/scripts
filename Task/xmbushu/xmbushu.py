@@ -12,9 +12,7 @@ user = ''
 passwd = ''
 BARK_PUSH = ''
 SCKEY = ''
-minstep = 21000
-maxstep = 30000
-step = str(random.randint(minstep,maxstep))
+# step = str(randint(17000, 18000))
 
 if "XM_USER" in os.environ:
     print("执行自Github action")
@@ -95,8 +93,9 @@ def main(user, passwd, step):
         print("用户名或密码填写有误！")
         return
 
-    if step != '':
-        print("已设置为随机步数（%s - %s）" %(minstep,maxstep))
+    if step == '':
+        print("已设置为随机步数（15000-18000）")
+        step = str(random.randint(21000, 30000))
     login_token = 0
     login_token, userid = login(user, password)
     if login_token == 0:
@@ -193,6 +192,8 @@ if __name__ == "__main__":
     # user = input()
     # 登录密码
     # passwd = input()
+    # 要修改的步数，直接输入想要修改的步数值，留空为随机步数
+    step = ''
     user_list = []
     passwd_list = []
     if os.environ["XM_USER"].find('&') > -1:
