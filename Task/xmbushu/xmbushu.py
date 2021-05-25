@@ -172,7 +172,7 @@ def serverJ(title, content):
 def bark(title, content):
     print("\n")
     # bark_token = BARK_PUSH
-    #bark_token = "Fkb6GtBGLPqJQShAXnR8HN"
+    bark_token = ''
     # if "BARK_PUSH" in os.environ:
     #     bark_token = os.environ["BARK_PUSH"]
     if not bark_token:
