@@ -14,7 +14,7 @@ BARK_PUSH = ''
 SCKEY = ''
 minstep = 21000
 maxstep = 30000
-step = str(randint(minstep,maxstep))
+step = str(random.randint(minstep,maxstep))
 
 if "XM_USER" in os.environ:
     print("执行自Github action")
