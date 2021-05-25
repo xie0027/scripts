@@ -12,7 +12,9 @@ user = ''
 passwd = ''
 BARK_PUSH = ''
 SCKEY = ''
-# step = str(randint(17000, 18000))
+minstep = 21000
+maxstep = 30000
+step = str(randint(minstep,maxstep))
 
 if "XM_USER" in os.environ:
     print("执行自Github action")
@@ -94,8 +96,7 @@ def main(user, passwd, step):
         return
 
     if step == '':
-        print("已设置为随机步数（15000-18000）")
-        step = str(random.randint(21000, 30000))
+        print("已设置为随机步数（"minstep"-"maxstep"）")
     login_token = 0
     login_token, userid = login(user, password)
     if login_token == 0:
