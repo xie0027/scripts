@@ -171,10 +171,9 @@ def serverJ(title, content):
 
 def bark(title, content):
     print("\n")
-    # bark_token = BARK_PUSH
-    bark_token = "Fkb6GtBGLPqJQShAXnR8HN"
-    # if "BARK_PUSH" in os.environ:
-    #     bark_token = os.environ["BARK_PUSH"]
+    bark_token = BARK_PUSH
+    if "BARK_PUSH" in os.environ:
+        bark_token = os.environ["BARK_PUSH"]
     if not bark_token:
         print("bark服务的bark_token未设置!!\n取消推送")
         return
