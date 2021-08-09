@@ -1,9 +1,14 @@
 name: 小米运动
 
 on:
-  workflow_dispatch:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
   schedule:
-    - cron: 0 7 * * *
+    - cron: 0 10 * * *
+  watch:
+    types: started
 
 jobs:
   build:
@@ -11,18 +16,18 @@ jobs:
     if: github.event.repository.owner.id == github.event.sender.id
 
     steps:
-    - uses: actions/checkout@v2
-    - name: 初始化Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.7
-    - name: 开始
-      run: |
-        pip install requests
-        bash mimotion.sh
-      env:
-       XMYD_USER: ${{ secrets.XMYD_USER }}  #必须
-       XMYD_PASSWD: ${{ secrets.XMYD_PASSWD }}  #必须
-       XMYD_STEP: ${{ secrets.XMYD_STEP }}  #必须:  
-       TG_BOT_TOKEN: ${{secrets.TG_BOT_TOKEN}} # tg通知token
-       TG_USER_ID:  ${{secrets.TG_USER_ID}}    # tg通知id
+      - uses: actions/checkout@v2
+      - name: 初始化Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+      - name: 开始
+        run: |
+          pip install requests
+          pmode='${{ secrets.PMODE }}'
+          pkey='${{ secrets.PKEY }}'
+          user='${{ secrets.XMYD_USER }}'
+          pwd='${{ secrets.XMYD_PASSWD }}'
+          step='${{ secrets.XMYD_STEP }}'
+
+          python3 main.py ${pmode} ${pkey} ${user} ${pwd} ${step}
