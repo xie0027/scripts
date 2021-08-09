@@ -1,33 +1,27 @@
 name: 小米运动
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  workflow_dispatch:
   schedule:
-    - cron: 40 8 * * *
+    - cron: '0 7 * * * '
   watch:
-    types: started
-
+    types: [started]
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: github.event.repository.owner.id == github.event.sender.id
-
     steps:
-      - uses: actions/checkout@v2
-      - name: 初始化Python
-        uses: actions/setup-python@v2
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: 'Set up Python'
+        uses: actions/setup-python@v1
         with:
           python-version: 3.7
-      - name: 开始
-        run: |
-          pip install requests
-          pmode='${{ secrets.PMODE }}'
-          pkey='${{ secrets.PKEY }}'
-          user='${{ secrets.XMYD_USER }}'
-          pwd='${{ secrets.XMYD_PASSWD }}'
-          step='${{ secrets.XMYD_STEP }}'
 
-          python3 mimotion.py ${pmode} ${pkey} ${user} ${pwd} ${step}
+      - name: 'run 小米运动' 
+        run: python3 mimotion.py
+        env:
+            XM_USER: ${{ secrets.XM_USER }}  #必须
+            XM_PWD: ${{ secrets.XM_PWD }}  #必须
+            BARK_PUSH: ${{ secrets.BARK_PUSH }}     # bark服务
+            SCKEY: ${{ secrets.SCKEY }}   # server酱服务
