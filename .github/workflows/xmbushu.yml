@@ -30,4 +30,4 @@ jobs:
           pwd='${{ secrets.XMYD_PASSWD }}'
           step='${{ secrets.XMYD_STEP }}'
 
-          python3 main.py ${pmode} ${pkey} ${user} ${pwd} ${step}
+          python3 mimotion.py ${pmode} ${pkey} ${user} ${pwd} ${step}
