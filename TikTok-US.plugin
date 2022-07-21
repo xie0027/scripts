@@ -21,4 +21,4 @@ USER-AGENT,tiktok*
 (?<=\d\/\?\w{7}_\w{4}=)1[6-9]..(?=.?.?&) 18.4 307
 
 [MITM]
-hostname = *.tiktokv.com,*.byteoversea.com, *.tik-tokapi.com
+hostname = *.tiktokv.com,*.byteoversea.com,*.tik-tokapi.com
