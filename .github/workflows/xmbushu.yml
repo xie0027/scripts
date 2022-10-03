@@ -3,7 +3,7 @@ name: 小米运动
 on:
   workflow_dispatch:
   schedule:
-    - cron: 0 7 * * *
+    - cron: 25 8 * * *
 
 jobs:
   build:
