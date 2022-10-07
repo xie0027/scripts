@@ -1,5 +1,5 @@
 # -*- coding: utf8 -*-
-# python >=3.8
+# python >=3.9
 
 import requests,time,re,json,random
 import os
